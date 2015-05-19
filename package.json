@@ -1,0 +1,26 @@
+{
+  "name": "tresamigos",
+  "version": "1.0.0",
+  "description": "A simple tool for analyzing your Gherkin feature files and building new ones quickly",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsnsimpson/tresamigos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsnsimpson/tresamigos/issues"
+  },
+  "homepage": "https://github.com/jsnsimpson/tresamigos",
+  "devDependencies": {
+    "express": "^4.12.4"
+  },
+  "dependencies": {
+    "express": "^4.12.4",
+    "line-by-line": "^0.1.3"
+  }
+}

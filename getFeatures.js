@@ -48,7 +48,7 @@ var fileReader = function(err, files) {
         }
     });
 
-    console.log(features);
+    console.log(JSON.stringify(features));
 };
 
 

@@ -18,9 +18,9 @@ if(!featureLocation) {
 
 var features = {
 
-    givens: [],
-    whens: [],
-    thens: []
+    givens: {},
+    whens: {},
+    thens: {}
 };
 
 
@@ -36,13 +36,13 @@ var fileReader = function(err, files) {
 
             var feature = new FeatureParser(featureLocation + file);
             feature.givens.forEach(function(given) {
-                features.givens.push(given);
+                features.givens[given] = given;
             });
             feature.whens.forEach(function(when) {
-                features.whens.push(when);
+                features.whens[when] = when;
             });
             feature.thens.forEach(function(then) {
-                features.thens.push(then);
+                features.thens[then] = then;
             });
 
         }

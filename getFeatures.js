@@ -35,6 +35,7 @@ var fileReader = function(err, files) {
         if(extension === fileExtension) {
 
             var feature = new FeatureParser(featureLocation + file);
+
             feature.givens.forEach(function(given) {
                 features.givens[given] = given;
             });
@@ -48,7 +49,12 @@ var fileReader = function(err, files) {
         }
     });
 
-    console.log(JSON.stringify(features));
+    fs.writeFile(__dirname + '/out/features.json', JSON.stringify(features), function() {
+        console.log(JSON.stringify(features, null, 2));
+    });
+
+
+
 };
 
 

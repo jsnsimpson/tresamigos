@@ -1,15 +1,22 @@
 
+var express = require('express');
+var fs = require('fs');
+var app = express();
 
-Given I am on the homepage
+var PORT = 2563;
 
-When I login
+app.use('/', express.static(__dirname  + '/client'));
+app.use('/lib', express.static(__dirname  + '/node_modules'));
 
-Then I see my profile page
+app.get('/features', function(req, res) {
 
+    var file = fs.readFileSync(__dirname + '/out/features.json', {
+        encoding: 'utf8'
+    });
 
+    res.json(JSON.parse(file));
+});
 
-And
-And
-
-
-Given I am on the homepage
+app.listen(PORT, function() {
+    console.log('express server listening on port: ' + PORT);
+});

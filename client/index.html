@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+
+<body ng-app='tresamigos' ng-cloak>
+
+
+<div class="content currentFeatures" ng-controller="AppController as app">
+    <h1> Select Steps </h1>
+    <h2>Givens</h2>
+    <ul>
+        <li ng-repeat="item in app.currentFeatures.givens">{{item}} </li>
+    </ul>
+
+    <h2>Whens</h2>
+    <ul>
+        <li ng-repeat="item in app.currentFeatures.whens">{{item}} </li>
+    </ul>
+
+    <h2>Thens</h2>
+    <ul>
+        <li ng-repeat="item in app.currentFeatures.thens">{{item}} </li>
+    </ul>
+
+</div>
+
+<div class="content newFeatures">
+    <h1> New Feature </h1>
+</div>
+
+
+
+
+<script type="text/javascript" src="/lib/angular/angular.min.js"></script>
+<script type="text/javascript" src="/src/app.js"></script>
+</body>
+</html>

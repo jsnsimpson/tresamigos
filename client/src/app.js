@@ -45,6 +45,20 @@
     }]);
 
     function NewFeaturesService($http) {
+        this.givens = [];
+        this.whens = [];
+        this.thens = [];
 
+        var that = this;
+
+        this.submitFeature = function() {
+            //$http.post('/features').then(function() {});
+        };
+
+        this.clearFeature = function() {
+            that.givens = [];
+            that.whens = [];
+            that.thens = [];
+        };
     }
 })();

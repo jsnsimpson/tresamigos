@@ -16,3 +16,7 @@
     width: 50%;
     overflow:scroll;
 }
+
+.new-new-feature-box ul {
+    list-style-type: none;
+}

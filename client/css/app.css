@@ -9,3 +9,10 @@
 .content li {
     cursor:pointer;
 }
+
+.new-feature-box {
+    border: 1px grey solid;
+    height: 75%;
+    width: 50%;
+    overflow:scroll;
+}

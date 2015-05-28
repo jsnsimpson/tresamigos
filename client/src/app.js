@@ -8,12 +8,20 @@
         this.currentFeatures = GetFeaturesService;
         this.newFeatures = NewFeaturesService;
 
+        this.showGivens = true;
+        this.showWhens = false;
+        this.showThens = false;
+
         this.getFeatures = function() {
             GetFeaturesService.getFeatures();
         };
 
         this.addStep = function(step) {
             NewFeaturesService.addStep(step)
+        };
+
+        this.clearNew = function() {
+            NewFeaturesService.clearFeature();
         };
 
         this.getFeatures();

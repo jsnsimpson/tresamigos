@@ -7,27 +7,49 @@
 <body ng-app='tresamigos' ng-cloak ng-controller="AppController as app">
 
 
+<header>
+    <div class="button-group">
+        <button ng-click="app.showGivens = !app.showGivens" ng-class="{selected: app.showGivens}">Givens</button>
+        <button ng-click="app.showWhens = !app.showWhens" ng-class="{selected: app.showWhens}">Whens</button>
+        <button ng-click="app.showThens = !app.showThens" ng-class="{selected: app.showThens}">Thens</button>
+    </div>
+
+</header>
+
+<section>
 <div class="content currentFeatures" >
-    <h1> Select Steps </h1>
-    <h2>Givens</h2>
-    <ul>
-        <li ng-repeat="item in app.currentFeatures.givens" ng-click="app.addStep(item)">{{item.step}} </li>
-    </ul>
 
-    <h2>Whens</h2>
-    <ul>
-        <li ng-repeat="item in app.currentFeatures.whens" ng-click="app.addStep(item)">{{item.step}} </li>
-    </ul>
 
-    <h2>Thens</h2>
-    <ul>
-        <li ng-repeat="item in app.currentFeatures.thens" ng-click="app.addStep(item)">{{item.step}} </li>
-    </ul>
 
+    <div ng-if="app.showGivens">
+        <h2>Givens</h2>
+        <label for="givenSearch">Search Givens</label>
+        <input id="givenSearch" name="givenSearch" ng-model="givenSearch">
+        <ul>
+            <li ng-repeat="item in app.currentFeatures.givens | filter:givenSearch" ng-click="app.addStep(item)">{{item.step}} </li>
+        </ul>
+    </div>
+    <div ng-if="app.showWhens">
+        <h2>Whens</h2>
+        <label for="whenSearch">Search Whens</label>
+        <input id="whenSearch" name="whenSearch" ng-model="whenSearch">
+        <ul>
+            <li ng-repeat="item in app.currentFeatures.whens | filter:whenSearch" ng-click="app.addStep(item)">{{item.step}} </li>
+        </ul>
+    </div>
+
+    <div ng-if="app.showThens">
+        <h2>Thens</h2>
+        <label for="thenSearch">Search Thens</label>
+        <input id="thenSearch" name="thenSearch" ng-model="thenSearch">
+        <ul>
+            <li ng-repeat="item in app.currentFeatures.thens | filter:thenSearch" ng-click="app.addStep(item)">{{item.step}} </li>
+        </ul>
+    </div>
 </div>
 
 <div class="feature-content newFeatures">
-    <h1> New Feature </h1>
+    <h1> New Feature </h1> <button id="clearNewFeatures" ng-click="app.clearNew()">Clear </button>
     <div class="new-feature-box">
         <ul>
             <li ng-repeat="item in app.newFeatures.givens">{{item.step}}</li>
@@ -35,9 +57,10 @@
             <li ng-repeat="item in app.newFeatures.thens">{{item.step}}</li>
         </ul>
     </div>
+
 </div>
 
-
+</section>
 
 
 <script type="text/javascript" src="/lib/angular/angular.min.js"></script>

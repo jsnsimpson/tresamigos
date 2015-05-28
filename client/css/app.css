@@ -10,9 +10,16 @@
     cursor:pointer;
 }
 
+.feature-content {
+    position:fixed;
+    left:50%;
+    height:100%;
+    width:50%;
+}
+
 .new-feature-box {
     border: 1px grey solid;
-    height: 75%;
+    height: 75%%;
     width: 50%;
     overflow:scroll;
 }

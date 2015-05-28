@@ -17,12 +17,10 @@ if(!featureLocation) {
 }
 
 var features = {
-
-    givens: {},
-    whens: {},
-    thens: {}
+    givens: [],
+    whens: [],
+    thens: []
 };
-
 
 var fileReader = function(err, files) {
     if(err) {
@@ -37,13 +35,19 @@ var fileReader = function(err, files) {
             var feature = new FeatureParser(featureLocation + file);
 
             feature.givens.forEach(function(given) {
-                features.givens[given] = given;
+                if(features.givens.indexOf(given) === -1) {
+                    features.givens.push(given);
+                }
             });
             feature.whens.forEach(function(when) {
-                features.whens[when] = when;
+                if(features.whens.indexOf(when) === -1) {
+                    features.whens.push(when);  
+                }
             });
             feature.thens.forEach(function(then) {
-                features.thens[then] = then;
+                if(features.thens.indexOf(then) === -1) {
+                    features.thens.push(then);
+                }
             });
 
         }
@@ -52,9 +56,6 @@ var fileReader = function(err, files) {
     fs.writeFile(__dirname + '/out/features.json', JSON.stringify(features), function() {
         console.log(JSON.stringify(features, null, 2));
     });
-
-
-
 };
 
 

@@ -13,8 +13,36 @@ app.get('/features', function(req, res) {
     var file = fs.readFileSync(__dirname + '/out/features.json', {
         encoding: 'utf8'
     });
+    var featureSteps = JSON.parse(file);
 
-    res.json(JSON.parse(file));
+    var currentFeatures = {
+    	givens: [],
+    	whens: [],
+    	thens: []
+    };
+
+    featureSteps.givens.forEach(function(step) {
+    	currentFeatures.givens.push({
+    		step: step,
+    		type: 'given'
+    	});
+    });
+
+    featureSteps.whens.forEach(function(step) {
+    	currentFeatures.whens.push({
+    		step: step,
+    		type: 'when'
+    	});
+    });
+
+    featureSteps.thens.forEach(function(step) {
+    	currentFeatures.thens.push({
+    		step: step,
+    		type: 'then'
+    	});
+    });
+
+    res.json(currentFeatures);
 });
 
 app.listen(PORT, function() {

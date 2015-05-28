@@ -3,19 +3,23 @@
     var app = angular.module('tresamigos', []);
 
 
-    function AppController(GetFeaturesService) {
+    function AppController(GetFeaturesService, NewFeaturesService) {
 
         this.currentFeatures = GetFeaturesService;
-        // this.newFeatures = NewFeaturesService;
+        this.newFeatures = NewFeaturesService;
 
         this.getFeatures = function() {
             GetFeaturesService.getFeatures();
         };
 
+        this.addStep = function(step) {
+            NewFeaturesService.addStep(step)
+        };
+
         this.getFeatures();
     }
 
-    app.controller('AppController', ['GetFeaturesService', AppController]);
+    app.controller('AppController', ['GetFeaturesService', 'NewFeaturesService', AppController]);
 
 
     function GetFeaturesService($http) {
@@ -60,5 +64,14 @@
             that.whens = [];
             that.thens = [];
         };
+
+        this.addStep = function(step) {
+            that[step.type + 's'].push(step);
+        };
     }
+
+    app.factory('NewFeaturesService', ['$http', function($http) {
+        var newFeatures = new NewFeaturesService($http);
+        return newFeatures;
+    }]);
 })();

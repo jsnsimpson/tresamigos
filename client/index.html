@@ -4,24 +4,24 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 
-<body ng-app='tresamigos' ng-cloak>
+<body ng-app='tresamigos' ng-cloak ng-controller="AppController as app">
 
 
-<div class="content currentFeatures" ng-controller="AppController as app">
+<div class="content currentFeatures" >
     <h1> Select Steps </h1>
     <h2>Givens</h2>
     <ul>
-        <li ng-repeat="item in app.currentFeatures.givens">{{item}} </li>
+        <li ng-repeat="item in app.currentFeatures.givens" ng-click="app.addStep(item)">{{item.step}} </li>
     </ul>
 
     <h2>Whens</h2>
     <ul>
-        <li ng-repeat="item in app.currentFeatures.whens">{{item}} </li>
+        <li ng-repeat="item in app.currentFeatures.whens" ng-click="app.addStep(item)">{{item.step}} </li>
     </ul>
 
     <h2>Thens</h2>
     <ul>
-        <li ng-repeat="item in app.currentFeatures.thens">{{item}} </li>
+        <li ng-repeat="item in app.currentFeatures.thens" ng-click="app.addStep(item)">{{item.step}} </li>
     </ul>
 
 </div>
@@ -29,7 +29,11 @@
 <div class="content newFeatures">
     <h1> New Feature </h1>
     <div class="new-feature-box">
-        
+        <ul>
+            <li ng-repeat="item in app.newFeatures.givens">{{item.step}}</li>
+            <li ng-repeat="item in app.newFeatures.whens">{{item.step}}</li>
+            <li ng-repeat="item in app.newFeatures.thens">{{item.step}}</li>
+        </ul>
     </div>
 </div>
 

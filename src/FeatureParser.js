@@ -40,13 +40,13 @@ function FeatureParser(fileLocation) {
                 andPusher = 'thens';
                 break;
             case 'And':
-
-                this[andPusher].push(line);
+                var newKeyword = andPusher[0].toUpperCase() + andPusher.slice(1, andPusher.length-1);
+                var correctLine = line.replace('And', (newKeyword));
+                
+                this[andPusher].push(correctLine);
                 break;
         }
     }.bind(this);
-
-
 
     var file = fs.readFileSync(fileLocation, {
         encoding: 'utf8'

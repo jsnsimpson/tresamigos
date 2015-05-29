@@ -1,6 +1,5 @@
 
 var fs = require('fs');
-var LineByLine = require('line-by-line');
 
 function FeatureParser(fileLocation) {
 

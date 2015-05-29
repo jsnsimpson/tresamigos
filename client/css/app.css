@@ -24,7 +24,7 @@
     overflow:scroll;
 }
 
-.new-new-feature-box ul {
+.new-feature-box ul {
     list-style-type: none;
 }
 
@@ -44,9 +44,10 @@ header {
 }
 
 section {
-    top : 50px;
+    top : 15px;
     height: 100%;
     width: 100%;
+    position:relative;
 }
 
 button.selected {

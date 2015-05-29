@@ -74,7 +74,12 @@
         };
 
         this.addStep = function(step) {
-            that[step.type + 's'].push(step);
+            var newStep = JSON.parse(JSON.stringify(step));
+            var type = step.type + 's';
+            if(that[type].length > 0) {
+                newStep.step = 'And' + newStep.step.slice(newStep.type.length, newStep.step.length);
+            }
+            that[step.type + 's'].push(newStep);
         };
     }
 

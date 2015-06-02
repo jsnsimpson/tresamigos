@@ -25,16 +25,19 @@
         <h2>Givens</h2>
         <label for="givenSearch">Search Givens</label>
         <input id="givenSearch" name="givenSearch" ng-model="givenSearch">
+
+        <button ng-if="!filteredGivens.length" ng-click="app.createStep(givenSearch, 'given')">Add</button>
         <ul>
-            <li ng-repeat="item in app.currentFeatures.givens | filter:givenSearch" ng-click="app.addStep(item)">{{item.step}} </li>
+            <li ng-repeat="item in filteredGivens = (app.currentFeatures.givens | filter:givenSearch)" ng-click="app.addStep(item)">{{item.step}} </li>
         </ul>
     </div>
     <div ng-if="app.showWhens">
         <h2>Whens</h2>
         <label for="whenSearch">Search Whens</label>
         <input id="whenSearch" name="whenSearch" ng-model="whenSearch">
+        <button ng-if="!filteredWhens.length" ng-click="app.createStep(whenSearch, 'when')">Add</button>
         <ul>
-            <li ng-repeat="item in app.currentFeatures.whens | filter:whenSearch" ng-click="app.addStep(item)">{{item.step}} </li>
+            <li ng-repeat="item in filteredWhens = (app.currentFeatures.whens | filter:whenSearch)" ng-click="app.addStep(item)">{{item.step}} </li>
         </ul>
     </div>
 
@@ -42,8 +45,9 @@
         <h2>Thens</h2>
         <label for="thenSearch">Search Thens</label>
         <input id="thenSearch" name="thenSearch" ng-model="thenSearch">
+        <button ng-if="!filteredThens.length" ng-click="app.createStep(thenSearch, 'then')">Add</button>
         <ul>
-            <li ng-repeat="item in app.currentFeatures.thens | filter:thenSearch" ng-click="app.addStep(item)">{{item.step}} </li>
+            <li ng-repeat="item in filteredThens = (app.currentFeatures.thens | filter:thenSearch)" ng-click="app.addStep(item)">{{item.step}} </li>
         </ul>
     </div>
 </div>

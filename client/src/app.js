@@ -24,6 +24,44 @@
             NewFeaturesService.clearFeature();
         };
 
+        this.createStep = function(step, type) {
+
+
+            if(step.toLowerCase().indexOf(type) !== 0) {
+                step = type[0].toUpperCase() + type.slice(1, type.length) + ' ' + step;
+            }
+            var newStep = {
+                step: step,
+                type: type
+            };
+            GetFeaturesService[type + 's'].unshift(newStep);
+            this.addStep(newStep);
+        };
+
+        this.createWhenStep = function(step) {
+            if(step.indexOf('When') !== 0) {
+                step = 'When ' + step;
+            }
+            var newStep = {
+                step: step,
+                type: 'when'
+            };
+            GetFeaturesService.whens.unshift(newStep);
+            this.addStep(newStep);
+        };
+
+        this.createThenStep = function(step) {
+            if(step.indexOf('Then') !== 0) {
+                step = 'Then ' + step;
+            }
+            var newStep = {
+                step: step,
+                type: 'then'
+            }
+            GetFeaturesService.thens.unshift(newStep);
+            this.addStep(newStep);
+        };
+
         this.getFeatures();
     }
 
